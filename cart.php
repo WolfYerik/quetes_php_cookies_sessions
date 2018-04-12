@@ -1,5 +1,8 @@
-<?php require 'inc/head.php';?>
-
+<?php require 'inc/head.php';
+if (!isset($_SESSION['name'])){
+    header("location:login.php");
+}
+?>
 <section class="cookies container-fluid">
     <div class="row">
         <?php
