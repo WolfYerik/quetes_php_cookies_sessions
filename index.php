@@ -1,4 +1,16 @@
-<?php require 'inc/head.php'; ?>
+<?php require 'inc/head.php';
+if (!isset($_SESSION['name'])){
+    header("location:login.php");
+}
+if (isset($_GET['add_to_cart'])){
+    if($_COOKIE['panier'] == 'Init'){
+        $_COOKIE['panier'] = '';
+    }$panier = $_COOKIE['panier'];
+
+    $panier = $_COOKIE['panier'].$_GET['add_to_cart'].',';
+    setcookie('panier', $panier);
+}
+?>
 <section class="cookies container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
